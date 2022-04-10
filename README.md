@@ -30,3 +30,7 @@ look for information. Below is an example of the format expected from one key in
 When the load button is clicked, the grids are loaded in. The top grid shows the most recent rotation and the bottom grid shows the previous rotation in the json file. The grid on the top right calculates the best times ever achieved in any rotation. Below this grid is the file directory. You can change the directory or file by either typing in the textbox or opening the file dialog menu by pressing the button to the right of the textbox.
 
 ![image](https://user-images.githubusercontent.com/100814612/162642344-51799780-580b-485f-bdf8-bc98970f8ff8.png)
+
+**Packages Used**
+-----------------------------------
+In this project I used the newtonsoft json package; however, I have created a class file that can easily be altered to use microsoft's json package if you wish to do so.
