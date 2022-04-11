@@ -51,6 +51,34 @@ The default file directory can be changed at any time. It is located in the proj
 <img src="https://user-images.githubusercontent.com/100814612/162650634-45f4e3a5-92e5-4032-ae56-d2aac5adbba9.png"><img>
 </p>
 
+**Json Files in C#**
+-----------------------------------
+There are multiple ways to access and write information from and to a json file. The below code goes over two different ways.
+```
+string fileName = @"d:\Users\Username\Desktop\sampleAB2.json";
+if (File.Exists(fileName))
+{
+  var jsonObject = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(fileName));
+  int rotation = jsonObject["Rotation"];
+  
+  //Writing a file
+  var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+  var text = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
+  File.WriteAllText(@"d:\Users\Username\Desktop\sampleAB2.json", text);
+
+  //If you want to assign the json to class instead, then you can call the value like this: jsonObject.Mission1.classUsed[0]
+  /*
+  var jsonObjectEdit = JsonConvert.DeserializeObject<JsonValues>(File.ReadAllText(fileName));
+  					    
+  //System.Text.Json Serialize Method
+  var options = new JsonSerializerOptions {WriteIndented = true};
+  string jsonString = System.Text.Json.JsonSerializer.Serialize(jsonObjectEdit, options);
+  Console.WriteLine(jsonString);
+  File.WriteAllText(@"d:\Users\Username\Desktop\sampleAB2.json", jsonString);
+  */
+}
+```
+
 **Step & Rotation**
 -----------------------------------
 Step starts at 1 to the number of column items or the number or max number of steps while rotation starts at 0 to the max number of cycles done. You can think of step as different courses/missions/objectives done while rotations is the almost of cycles done or the most recently in progress cycle.
