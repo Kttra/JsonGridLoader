@@ -43,6 +43,14 @@ The "Add Entry" button will add another entry to the json file. It opens another
 <img src="https://user-images.githubusercontent.com/100814612/162650562-8891b41c-dbbd-4517-aea0-3098aa808b90.png"><img>
 </p>
 
+**Delete Entry Button**
+-----------------------------------
+The "Delete Entry" button is the opposite of the entry button. It will delete the requested entry for the user given the rotation index and the row index. Use this feature carefully as this is more intended to delete the most recent entry if you accidentally mistyped. While it can delete any entry, it's your job to make sure sure to go back in and reenter those entries manually. Deleting an entry can also cause the step and rotation key values to be out of sync.
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100814612/162840437-2ad9ef0d-de4d-4416-b399-3a50126350e0.png"><img>
+</p>
+
 **File Location & Default File Directory**
 -----------------------------------
 The default file directory can be changed at any time. It is located in the project settings. To change the directory, you can either type in the directory in the textbox and press enter or press on the button to bring up the file explorer menu. 
@@ -180,4 +188,6 @@ In this project I used the newtonsoft json package; however, I have created a cl
 
 **Current Progress**
 -----------------------------------
-Currently, the program is at a state where I am satisfied. The only feature left that I have not finished is the delete entry feature.
+Currently, the program is at a state where I am satisfied. The most recent feature added was the delete entry feature. In addition, I have also made it so if you highlight a cell in grid1, grid2's corresponding cell will be highlighted as well. This makes comparing cell values from different rotations much easier.
+
+The program currently does not use the Solo rank, Last rank, Group place, and 20th group place keys. Because this program is more focused on being able to be freely changed at any given time, I found that using those keys would be the opposite of this objective. If you want to see how they were originally intended to be used, you can refer to the C++ version of this project.
