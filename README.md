@@ -113,6 +113,59 @@ for (int i = 0; i < Form1.colNum; i++)
 //var labels = new List<Label> { label0, label1, label2, label3, label4, label5, label6, label7, label8};
 ```
 
+**Textbox Enter Event**
+-----------------------------------
+Instead of checking user input upon a button press we can check user input by a key event press. Below is a section of the code where we check the user's input for a valid file path.
+
+```
+private void directoryTextbox_KeyDown(object sender, KeyEventArgs e)
+{
+  if (e.KeyCode == Keys.Enter)
+  {
+    //Check if file path exists and if it's a json file
+            if (directoryTextbox.Text.EndsWith(".json") && File.Exists(directoryTextbox.Text))
+            {
+      Properties.Settings.Default.FileName = directoryTextbox.Text;
+      Properties.Settings.Default.Save();
+      MessageBox.Show("File path saved", "Success");
+    }
+            else
+            {
+      MessageBox.Show("Invalid file path", "Error");
+    }
+  }
+}
+```
+
+**File Dialog**
+------------------------------------
+To open the file dialog and assign settings we can do the following:
+
+```
+//Setting up the file explorer selector
+OpenFileDialog openFileDialog1 = new OpenFileDialog();
+openFileDialog1.CheckFileExists = true;
+openFileDialog1.CheckPathExists = true;
+openFileDialog1.RestoreDirectory = true;
+openFileDialog1.InitialDirectory = @"C:\";
+openFileDialog1.Title = "Choose a json file";
+openFileDialog1.Filter = "json files (*.json)|*.json|All files (*.*)|*.*";
+
+//File path valid
+if (openFileDialog1.ShowDialog() == DialogResult.OK)
+{
+  //Get the path of specified file
+  directoryTextbox.Text = openFileDialog1.FileName;
+  Properties.Settings.Default.FileName = openFileDialog1.FileName;
+  Properties.Settings.Default.Save();
+  MessageBox.Show("File path saved", "Success");
+}
+      else
+      {
+  MessageBox.Show("Invalid file path", "Error");
+}
+```
+
 **Step & Rotation**
 -----------------------------------
 Step starts at 1 to the number of column items or the number or max number of steps while rotation starts at 0 to the max number of cycles done. You can think of step as different courses/missions/objectives done while rotations is the almost of cycles done or the most recently in progress cycle.
