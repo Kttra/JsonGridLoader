@@ -91,12 +91,16 @@ namespace jsonToGrid
                 {
                     Form1.grid2Rotation = rotationNum;
                 }
+                else
+                {
+                    //Userinput is out of bounds
+                    return false;
+                }
             }
 
             return isValid;
         }
-
+        //Used to determine how much inputs we got from the user
         public static int counter = 0;
-
     }
 }

@@ -259,17 +259,6 @@ namespace jsonToGrid
 			}
 		}
 
-		//Array of the Key Values in your json file
-		public static readonly string[] rowName = {"Step 1", "Step 2", "Step 3", "Step 4", "Step 5",
-									"Step 6", "Step 7", "Step 8", "Step 9"};
-		//Array of the values under the key in your json file
-		public static readonly string[] colName = {"1st solo", "20th solo", "My solo", "Date",
-									"Class used", "Group time", "1st group time", "Group 20 time", "Team"};
-		public static readonly int colNum = colName.Length;
-		public static readonly int rowNum = rowName.Length;
-		//Information we will get from form 2
-		public static int grid1Rotation;
-		public static int grid2Rotation;
 		//When the directory button is pressed, open the file dialog
         private void button1_Click(object sender, EventArgs e)
         {
@@ -293,6 +282,7 @@ namespace jsonToGrid
 				}
 			}
 		}
+		//Changes the default directory, called from the change directory button press event
 		private void changeDefaultDirectory()
         {
 			//Setting up the file explorer selector
@@ -318,5 +308,75 @@ namespace jsonToGrid
 				MessageBox.Show("Invalid file path", "Error");
 			}
 		}
-    }
+		//Clears the blue highlight in the 3rd grid
+		private void dataGridView3_SelectionChanged(object sender, EventArgs e)
+		{
+			this.dataGridView3.ClearSelection();
+		}
+		//When a cell in grid 1 is pressed on, highlight it in data grid 2
+		private void dataGridView1_SelectionChanged(object sender, EventArgs e)
+		{
+			this.dataGridView2.ClearSelection();
+			int rPos = dataGridView1.CurrentCell.ColumnIndex;
+			int i = dataGridView1.CurrentRow.Index;
+			dataGridView2[rPos, i].Selected = true;
+		}
+		//When a cell in grid 2 is pressed on
+		private void dataGridView2_SelectionChanged(object sender, EventArgs e)
+		{
+			//this.dataGridView2.ClearSelection();
+		}
+		//Delete an entry from the json file, rowName index starts at 1, rotation index starts at 0 in our case
+		private void DeleteButton_Click(object sender, EventArgs e)
+		{
+			Form f4 = new DeleteEntry();
+			var result = f4.ShowDialog();
+			if (result == DialogResult.OK)
+			{
+				string fileName = Properties.Settings.Default.FileName;
+				var jsonObject = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(fileName));
+
+				int rotation = jsonObject["Rotation"];
+				int step = jsonObject["Step"];
+
+                foreach (string name in colName)
+                {
+                    try
+                    {
+						//Console.WriteLine(jsonObject[rowName[delRow - 1]][name][delRotation]);
+						jsonObject[rowName[delRow - 1]][name].RemoveAt(delRotation);
+                    }
+					//out of bounds error, occurs when trying to delete an entry that does not exist
+                    catch (Exception err)
+                    {
+						MessageBox.Show("" + err, "Error");
+
+					}
+                }
+
+				var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+				var text = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
+
+				MessageBox.Show("Rotation: " + delRotation + ", Row Index: " + delRow + " has been deleted successfully", "Success!");
+
+				File.WriteAllText(@"d:\Users\kevin\Desktop\bing\JsonEditor\sampleAB2.json", text);
+				//Console.WriteLine(text);
+			}
+		}
+
+		//Array of the Key Values in your json file
+		public static readonly string[] rowName = {"Step 1", "Step 2", "Step 3", "Step 4", "Step 5",
+									"Step 6", "Step 7", "Step 8", "Step 9"};
+		//Array of the values under the key in your json file
+		public static readonly string[] colName = {"1st solo", "20th solo", "My solo", "Date",
+									"Class used", "Group time", "1st group time", "Group 20 time", "Team"};
+		public static readonly int colNum = colName.Length;
+		public static readonly int rowNum = rowName.Length;
+		//Information we will get from the RequestForm, used to load specific rotations
+		public static int grid1Rotation;
+		public static int grid2Rotation;
+		//Information we will get from DeleteEntry form, used to delete specific entries
+		public static int delRotation;
+		public static int delRow;
+	}
 }

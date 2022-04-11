@@ -1,7 +1,7 @@
 ﻿
 namespace jsonToGrid
 {
-    partial class RequestForm
+    partial class DeleteEntry
     {
         /// <summary>
         /// Required designer variable.
@@ -29,33 +29,34 @@ namespace jsonToGrid
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.userInput = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // userInput
+            // 
+            this.userInput.Location = new System.Drawing.Point(114, 79);
+            this.userInput.Name = "userInput";
+            this.userInput.Size = new System.Drawing.Size(100, 20);
+            this.userInput.TabIndex = 0;
+            this.userInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.userInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userInput_KeyDown);
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Cooper Black", 12.75F);
-            this.label1.Location = new System.Drawing.Point(3, 33);
+            this.label1.Location = new System.Drawing.Point(0, 35);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(284, 43);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Enter the rotation you would want to see in the first table";
+            this.label1.Size = new System.Drawing.Size(331, 41);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "What rotation would you like to select? (Most recent is )";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // userInput
-            // 
-            this.userInput.Location = new System.Drawing.Point(98, 79);
-            this.userInput.Name = "userInput";
-            this.userInput.Size = new System.Drawing.Size(100, 20);
-            this.userInput.TabIndex = 1;
-            this.userInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.userInput.KeyDown += new System.Windows.Forms.KeyEventHandler(this.userInput_KeyDown);
             // 
             // ConfirmButton
             // 
-            this.ConfirmButton.Location = new System.Drawing.Point(110, 105);
+            this.ConfirmButton.Location = new System.Drawing.Point(127, 105);
             this.ConfirmButton.Name = "ConfirmButton";
             this.ConfirmButton.Size = new System.Drawing.Size(75, 23);
             this.ConfirmButton.TabIndex = 2;
@@ -63,18 +64,29 @@ namespace jsonToGrid
             this.ConfirmButton.UseVisualStyleBackColor = true;
             this.ConfirmButton.Click += new System.EventHandler(this.ConfirmButton_Click);
             // 
-            // RequestForm
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(1, 152);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(338, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Remember rotation index starts at 0, row index starts at 1";
+            // 
+            // DeleteEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 176);
+            this.ClientSize = new System.Drawing.Size(343, 192);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ConfirmButton);
-            this.Controls.Add(this.userInput);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.userInput);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "RequestForm";
+            this.Name = "DeleteEntry";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "RequestForm";
+            this.Text = "Delete an Entry";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -82,8 +94,9 @@ namespace jsonToGrid
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox userInput;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ConfirmButton;
+        private System.Windows.Forms.Label label2;
     }
 }

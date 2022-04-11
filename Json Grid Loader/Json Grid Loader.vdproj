@@ -285,6 +285,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_A8F87AFF60F64B3D9EF87C2F050D4E08"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_AC46749A9D61DF2263B5F1A017CBB476"
         "OwnerKey" = "8:_DDDF86ACE32FFB29EE90CFF7AD266357"
         "MsmSig" = "8:_UNDEFINED"
@@ -1041,6 +1047,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A8F87AFF60F64B3D9EF87C2F050D4E08"
+            {
+            "SourcePath" = "8:D:\\Users\\kevin\\Desktop\\bing\\JsonEditor\\sampleAB2.json"
+            "TargetName" = "8:sampleAB2.json"
+            "Tag" = "8:"
+            "Folder" = "8:_8D405327AB0C47FC9DE9087100FE97DE"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_AC46749A9D61DF2263B5F1A017CBB476"
             {
             "AssemblyRegister" = "3:1"
@@ -1253,7 +1279,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:Json Grid Loader"
         "ProductCode" = "8:{C99AC688-ADC5-4DD8-9EA8-217142C2815E}"
-        "PackageCode" = "8:{DFAC9922-0339-4990-A9F0-9C4FDC224DAF}"
+        "PackageCode" = "8:{8DF8D904-7E5A-4324-83CB-D261EA3316DD}"
         "UpgradeCode" = "8:{7959140F-2502-49C8-ACFD-A7573EE1E170}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"

@@ -19,7 +19,6 @@ namespace jsonToGrid
             InitializeComponent();
             InitializeLabels();
             InitializeTextBoxes();
-            this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
         }
         //Update the Labels
         private void InitializeLabels()
