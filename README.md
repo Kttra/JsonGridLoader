@@ -79,6 +79,23 @@ if (File.Exists(fileName))
 }
 ```
 
+**Grid and Cell Values**
+-----------------------------------
+You can assign the cell values manually and also add in rows throughout the program.
+
+```
+//Add a row
+dataGridView1.Rows.Add("Row Name");
+
+//Assigning row 8, cell 0 a value
+dataGridView1.Rows[8].Cells[0].Value = "Row Name";
+dataGridView1[8, 0].Value = "Row Name";
+
+//Clear the grid
+dataGridView1.Rows.Clear();
+//
+```
+
 **Step & Rotation**
 -----------------------------------
 Step starts at 1 to the number of column items or the number or max number of steps while rotation starts at 0 to the max number of cycles done. You can think of step as different courses/missions/objectives done while rotations is the almost of cycles done or the most recently in progress cycle.
