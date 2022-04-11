@@ -170,6 +170,10 @@ if (openFileDialog1.ShowDialog() == DialogResult.OK)
 -----------------------------------
 Step starts at 1 to the number of column items or the number or max number of steps while rotation starts at 0 to the max number of cycles done. You can think of step as different courses/missions/objectives done while rotations is the almost of cycles done or the most recently in progress cycle.
 
+**Changing the Code to Suit Your Json File**
+-----------------------------------
+To alter the program to your needs, you can add, remove, or rename the rowName and colName arrays located at the bottom of Form1. I have coded the program in a way so that it will refer to these lists to fetch information. The rowName array should contain your keys in the json file and the colName array should contain the value name. Also refer to the sample json file to see how your json file should be formatted.
+
 **Packages Used**
 -----------------------------------
 In this project I used the newtonsoft json package; however, I have created a class file that can easily be altered to use microsoft's json package if you wish to do so. It may make it easier to conceptualize what is happening by using the class file, but for automation and editing wise it's better to work with the json file dynamically.
