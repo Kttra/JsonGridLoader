@@ -1,13 +1,9 @@
 # JsonGridLoader
 Visual Studio C# program that loads grids using information from a json file. This is a rewritten and enhanced version of my [C++ project](https://github.com/Kttra/VS_GridProject).
 
-The program expects the format of your json file to be a specific way. The way it is formmated
-is that it assumes you are trying to load a table for a competition. This competition changes weekly
-where each week is a different objective (this is called a step or a mission). One the competition goes through
-all objectives, it cycles back to the beginning. This is called one cycle or one rotation.
+The program expects the format of your json file to be a specific way. The way it is formmated is that it assumes you are trying to load a table for a competition. This competition changes weekly/daily where each week/day is a different objective (this is called a step or a mission). One the competition goes through all objectives, it cycles back to the beginning. This is called one cycle or one rotation.
 
-In your json file, you should have the "rotation" and "step" keys so the program knows how far it should
-look for information. Below is an example of the format expected from one key in the json file. They key has values that consists of a list where each value in the list is bound to each rotation in the competition chronologically.
+In your json file, you should have the "rotation" and "step" keys so the program knows how far it should look for information. Below is an example of the format expected from one key in the json file. The first rotation starts at index 0. While step is how far in we are in the rotation. They key has values that consists of a list where each value in the list is bound to each rotation in the competition chronologically.
 
 ```
 "Step 1": {
@@ -31,6 +27,32 @@ When the load button is clicked, the grids are loaded in. The top grid shows the
 
 ![image](https://user-images.githubusercontent.com/100814612/162642344-51799780-580b-485f-bdf8-bc98970f8ff8.png)
 
+**Request Button**
+-----------------------------------
+The request button will open another form asking for what two rotations you would like to open onto the grid because load will only load the recent and previous rotations for comparison.
+
+![image](https://user-images.githubusercontent.com/100814612/162650577-fdad1f07-3f2d-4457-859d-578cf5fa5c57.png)
+
+**Add Entry Button**
+-----------------------------------
+The "Add Entry" button will add another entry to the json file. It opens another form that will ask for user input. On the right of the menu, it shows the format expected (taken from rotation 2 of the json file for each value in a key). Input validation wise, the program does not check for specific formatting because such a method cannot be made to be adaptive for different json files. Instead, I have only set the program to check whether or not you have entered a integer or a string to be outputted to the json file.
+
+![image](https://user-images.githubusercontent.com/100814612/162650562-8891b41c-dbbd-4517-aea0-3098aa808b90.png)
+
+**File Location & Default File Directory**
+-----------------------------------
+The default file directory can be changed at any time. It is located in the project settings. To change the directory, you can either type in the directory in the textbox and press enter or press on the button to bring up the file explorer menu. 
+
+![image](https://user-images.githubusercontent.com/100814612/162650634-45f4e3a5-92e5-4032-ae56-d2aac5adbba9.png)
+
+**Step & Rotation**
+-----------------------------------
+Step starts at 1 to the number of column items or the number or max number of steps while rotation starts at 0 to the max number of cycles done. You can think of step as different courses/missions/objectives done while rotations is the almost of cycles done or the most recently in progress cycle.
+
 **Packages Used**
 -----------------------------------
-In this project I used the newtonsoft json package; however, I have created a class file that can easily be altered to use microsoft's json package if you wish to do so.
+In this project I used the newtonsoft json package; however, I have created a class file that can easily be altered to use microsoft's json package if you wish to do so. It may make it easier to conceptualize what is happening by using the class file, but for automation and editing wise it's better to work with the json file dynamically.
+
+**Current Progress**
+-----------------------------------
+Currently, the program is at a state where I am satisfied. The only feature left that I have not finished is the delete entry feature.
