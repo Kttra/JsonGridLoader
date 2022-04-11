@@ -66,7 +66,7 @@ if (File.Exists(fileName))
   var text = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
   File.WriteAllText(@"d:\Users\Username\Desktop\sampleAB2.json", text);
 
-  //If you want to assign the json to class instead, then you can call the value like this: jsonObject.Mission1.classUsed[0]
+  //If you want to assign the json to class instead, then you can call the value like this: jsonObject.Step1.classUsed[0]
   /*
   var jsonObjectEdit = JsonConvert.DeserializeObject<JsonValues>(File.ReadAllText(fileName));
   					    
@@ -93,7 +93,24 @@ dataGridView1[8, 0].Value = "Row Name";
 
 //Clear the grid
 dataGridView1.Rows.Clear();
-//
+```
+
+**Form Controls, Labels, Textboxes**
+------------------------------------
+We can assign and change the form controls on the go without needing to create a list.
+
+```
+//Best method in our case
+for (int i = 0; i < Form1.colNum; i++)
+{
+    this.Controls["label" + i].Text = Form1.colName[i];
+}
+
+//If you don't care about order
+//var labels = Controls.OfType<Label>().Where(label => label.Name.StartsWith("label"));
+
+//If you want to use exact names
+//var labels = new List<Label> { label0, label1, label2, label3, label4, label5, label6, label7, label8};
 ```
 
 **Step & Rotation**
