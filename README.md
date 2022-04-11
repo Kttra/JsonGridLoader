@@ -31,19 +31,25 @@ When the load button is clicked, the grids are loaded in. The top grid shows the
 -----------------------------------
 The request button will open another form asking for what two rotations you would like to open onto the grid because load will only load the recent and previous rotations for comparison.
 
-![image](https://user-images.githubusercontent.com/100814612/162650577-fdad1f07-3f2d-4457-859d-578cf5fa5c57.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100814612/162650577-fdad1f07-3f2d-4457-859d-578cf5fa5c57.png"><img>
+</p>
 
 **Add Entry Button**
 -----------------------------------
 The "Add Entry" button will add another entry to the json file. It opens another form that will ask for user input. On the right of the menu, it shows the format expected (taken from rotation 2 of the json file for each value in a key). Input validation wise, the program does not check for specific formatting because such a method cannot be made to be adaptive for different json files. Instead, I have only set the program to check whether or not you have entered a integer or a string to be outputted to the json file.
 
-![image](https://user-images.githubusercontent.com/100814612/162650562-8891b41c-dbbd-4517-aea0-3098aa808b90.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100814612/162650562-8891b41c-dbbd-4517-aea0-3098aa808b90.png"><img>
+</p>
 
 **File Location & Default File Directory**
 -----------------------------------
 The default file directory can be changed at any time. It is located in the project settings. To change the directory, you can either type in the directory in the textbox and press enter or press on the button to bring up the file explorer menu. 
 
-![image](https://user-images.githubusercontent.com/100814612/162650634-45f4e3a5-92e5-4032-ae56-d2aac5adbba9.png)
+<p align="center">
+<img src="https://user-images.githubusercontent.com/100814612/162650634-45f4e3a5-92e5-4032-ae56-d2aac5adbba9.png"><img>
+</p>
 
 **Step & Rotation**
 -----------------------------------
