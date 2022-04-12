@@ -76,9 +76,7 @@ namespace jsonToGrid
                     break;
             }
         }
-        //Used to determine how much input we got from the user
-        public static int counter = 0;
-
+        //If the user presses enter in the textbox
         private void userInput_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -86,5 +84,7 @@ namespace jsonToGrid
                 getDelInfo();
             }
         }
+        //Used to determine how much input we got from the user
+        private static int counter = 0;
     }
 }
