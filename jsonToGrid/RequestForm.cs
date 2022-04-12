@@ -101,6 +101,6 @@ namespace jsonToGrid
             return isValid;
         }
         //Used to determine how much inputs we got from the user
-        public static int counter = 0;
+        private static int counter = 0;
     }
 }
