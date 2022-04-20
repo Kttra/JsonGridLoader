@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO; //FILE
 using Newtonsoft.Json;
-using System.Text.Json;
+
 /*	The purpose of the program is to fill tables based off of json files.
  	
 	The program expects the format of your json file to be a specific way. The way it is formmated
@@ -18,7 +18,7 @@ using System.Text.Json;
 
 	Rotation = The amount of cycles done
 	Step = How far are you in the cycle or rotation
-//*/
+*/
 
 namespace jsonToGrid
 {
@@ -78,9 +78,16 @@ namespace jsonToGrid
 				loadGridValues(jsonObject, 1, rotation, step);
 				label1.Text = "Rotation " + rotation;
 
-				//Load 2nd table
-				loadGridValues(jsonObject, 2, rotation - 1, grid2Step);
-				label2.Text = "Rotation " + (rotation - 1);
+				//Load 2nd table if the previous rotation exists
+				if (jsonObject["Rotation"] != "0")
+				{
+					loadGridValues(jsonObject, 2, rotation - 1, grid2Step);
+					label2.Text = "Rotation " + (rotation - 1);
+				}
+                else
+                {
+					label2.Text = "Rotation DNE";
+				}
 
 				//Load 3rd table
 				loadBestGrid(jsonObject);
