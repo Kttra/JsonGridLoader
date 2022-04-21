@@ -61,6 +61,7 @@ namespace jsonToGrid
             this.TextB6 = new System.Windows.Forms.TextBox();
             this.TextB7 = new System.Windows.Forms.TextBox();
             this.TextB8 = new System.Windows.Forms.TextBox();
+            this.BtnAutoFill = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ConfirmButton
@@ -346,11 +347,22 @@ namespace jsonToGrid
             this.TextB8.TabIndex = 30;
             this.TextB8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // BtnAutoFill
+            // 
+            this.BtnAutoFill.Location = new System.Drawing.Point(341, 372);
+            this.BtnAutoFill.Name = "BtnAutoFill";
+            this.BtnAutoFill.Size = new System.Drawing.Size(75, 23);
+            this.BtnAutoFill.TabIndex = 31;
+            this.BtnAutoFill.Text = "Auto Fill";
+            this.BtnAutoFill.UseVisualStyleBackColor = true;
+            this.BtnAutoFill.Click += new System.EventHandler(this.BtnAutoFill_Click);
+            // 
             // AddEntryForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(428, 407);
+            this.Controls.Add(this.BtnAutoFill);
             this.Controls.Add(this.TextB8);
             this.Controls.Add(this.TextB7);
             this.Controls.Add(this.TextB6);
@@ -424,5 +436,6 @@ namespace jsonToGrid
         private System.Windows.Forms.TextBox TextB6;
         private System.Windows.Forms.TextBox TextB7;
         private System.Windows.Forms.TextBox TextB8;
+        private System.Windows.Forms.Button BtnAutoFill;
     }
 }

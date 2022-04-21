@@ -1,9 +1,15 @@
-using System;
+﻿using System;
+//using System.Collections.Generic;
+//using System.ComponentModel;
+//using System.Data;
+//using System.Drawing;
+//using System.Linq;
+//using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO; //FILE
 using Newtonsoft.Json;
-
+//using System.Text.Json;
 /*	The purpose of the program is to fill tables based off of json files.
  	
 	The program expects the format of your json file to be a specific way. The way it is formmated
@@ -360,8 +366,49 @@ namespace jsonToGrid
 
 				MessageBox.Show("Rotation: " + delRotation + ", Row Index: " + delRow + " has been deleted successfully", "Success!");
 
-				File.WriteAllText(@"d:\Users\kevin\Desktop\bing\JsonEditor\sampleAB2.json", text);
+				File.WriteAllText(fileName, text);
 				//Console.WriteLine(text);
+			}
+			//User selected to delete the last entry
+			else if(delRotation == -1)
+			{
+				string fileName = Properties.Settings.Default.FileName;
+				var jsonObject = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(fileName));
+
+				int rotation = jsonObject["Rotation"];
+				int step = jsonObject["Step"];
+
+				foreach (string name in Form1.colName)
+				{
+					try
+					{
+						//Console.WriteLine(jsonObject[rowName[delRow - 1]][name][delRotation]);
+						jsonObject[Form1.rowName[step - 1]][name].RemoveAt(rotation);
+					}
+					//out of bounds error, occurs when trying to delete an entry that does not exist
+					catch (Exception err)
+					{
+						MessageBox.Show("" + err, "Error");
+
+					}
+				}
+				//If it's the first step we need to go back to the previous rotation and step
+				if (step == 1 && rotation != 0)
+				{
+					jsonObject["Step"] = Form1.rowName.Length;
+					jsonObject["Rotation"] = --rotation;
+				}
+				else
+				{
+					jsonObject["Step"] = --step;
+				}
+				var settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+				var text = JsonConvert.SerializeObject(jsonObject, Formatting.Indented);
+				File.WriteAllText(fileName, text);
+				MessageBox.Show("Last entry has been deleted successfully", "Success!");
+				
+				//Reload the most recent rotations
+				loadTable();
 			}
 		}
 

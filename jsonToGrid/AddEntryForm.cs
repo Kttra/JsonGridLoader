@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO; //FILE
@@ -58,7 +58,6 @@ namespace jsonToGrid
                 else
                 {
                     EntryLevel.Text = Form1.rowName[step] + " - Rotation " + rotation; //Update the label
-                    step++;
                 }
             }
         }
@@ -69,9 +68,19 @@ namespace jsonToGrid
             if (File.Exists(fileName))
             {
                 var jsonObject = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(fileName));
+                int rotation = jsonObject["Rotation"];
+                rotation = rand.Next(rotation);
+                int step = jsonObject["Step"];
+                step = rand.Next(step - 1);
+
                 for (int i = 0; i < 9; i++)
                 {
-                    this.Controls["TextB" + i].Text = jsonObject[Form1.rowName[0]][Form1.colName[i]][2];
+                    try
+                    {
+                        this.Controls["TextB" + i].Text = jsonObject[Form1.rowName[step]][Form1.colName[i]][rotation];
+                    }
+                    catch { 
+                    }
                     this.SetStyle(ControlStyles.SupportsTransparentBackColor, true);
                     this.BackColor = Color.Transparent;
                 }
@@ -83,7 +92,6 @@ namespace jsonToGrid
         {
             //Initialize the variables
             //var textbox = Controls.OfType<TextBox>().Where(TextBox => TextBox.Name.StartsWith("textBox"));
-            
 
             string fileName = Properties.Settings.Default.FileName;
             var jsonObject = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(fileName));
@@ -134,5 +142,32 @@ namespace jsonToGrid
         {
             return int.TryParse(value, out int _);
         }
+        //Auto fills the textboxes with random data from a random entry in the json file
+        private void BtnAutoFill_Click(object sender, EventArgs e)
+        {
+            string fileName = Properties.Settings.Default.FileName;
+            if (File.Exists(fileName))
+            {
+                var jsonObject = JsonConvert.DeserializeObject<dynamic>(File.ReadAllText(fileName));
+                int rotation = jsonObject["Rotation"];
+                rotation = rand.Next(rotation);
+                int step = jsonObject["Step"];
+                step = rand.Next(step-1);
+
+                for (int i = 0; i < 9; i++)
+                {
+                    try
+                    {
+                        //Fill in textbox with random entry
+                        this.Controls["Textbox" + i].Text = jsonObject[Form1.rowName[step]][Form1.colName[i]][rotation];
+                    }
+                    catch
+                    {
+                    }
+                }
+            }
+        }
+        //Our random method
+        private static Random rand = new Random();
     }
 }

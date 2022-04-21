@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO; //FILE
@@ -76,6 +76,12 @@ namespace jsonToGrid
             {
                 getDelInfo();
             }
+        }
+        //Deletes the last made entry and updates rotation and step appropriately
+        private void BtnDelLast_Click(object sender, EventArgs e)
+        {
+            Form1.delRotation = -1;
+            this.Close();
         }
         //Used to determine how much input we got from the user
         private static int counter = 0;

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.IO; //FILE
@@ -15,7 +15,6 @@ namespace jsonToGrid
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
             getInput();
-            
         }
         //When the neter key is pressed check the input
         private void userInput_KeyDown(object sender, KeyEventArgs e)

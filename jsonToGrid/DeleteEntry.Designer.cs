@@ -33,6 +33,7 @@ namespace jsonToGrid
             this.label1 = new System.Windows.Forms.Label();
             this.ConfirmButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtnDelLast = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userInput
@@ -70,15 +71,26 @@ namespace jsonToGrid
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(1, 152);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(338, 16);
+            this.label2.Size = new System.Drawing.Size(337, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Remember rotation index starts at 0, row index starts at 1";
+            // 
+            // BtnDelLast
+            // 
+            this.BtnDelLast.Location = new System.Drawing.Point(256, 9);
+            this.BtnDelLast.Name = "BtnDelLast";
+            this.BtnDelLast.Size = new System.Drawing.Size(75, 23);
+            this.BtnDelLast.TabIndex = 4;
+            this.BtnDelLast.Text = "Delete Last";
+            this.BtnDelLast.UseVisualStyleBackColor = true;
+            this.BtnDelLast.Click += new System.EventHandler(this.BtnDelLast_Click);
             // 
             // DeleteEntry
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(343, 192);
+            this.Controls.Add(this.BtnDelLast);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.ConfirmButton);
             this.Controls.Add(this.label1);
@@ -98,5 +110,6 @@ namespace jsonToGrid
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button ConfirmButton;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnDelLast;
     }
 }
