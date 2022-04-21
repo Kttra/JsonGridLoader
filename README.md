@@ -39,17 +39,22 @@ The request button will open another form asking for what two rotations you woul
 -----------------------------------
 The "Add Entry" button will add another entry to the json file. It opens another form that will ask for user input. On the right of the menu, it shows the format expected (taken from rotation 2 of the json file for each value in a key). Input validation wise, the program does not check for specific formatting because such a method cannot be made to be adaptive for different json files. Instead, I have only set the program to check whether or not you have entered a integer or a string to be outputted to the json file.
 
+New feature added to the add entry form. It is now possible to autofill the textboxes with a randomly selected existing entry in the json file. This makes it easier to add in random entries for easier debugging.
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/100814612/162650562-8891b41c-dbbd-4517-aea0-3098aa808b90.png"><img>
+<img src="https://user-images.githubusercontent.com/100814612/164357127-0b412f80-3dc0-42d4-83e7-7c1291f08acf.png"><img>
 </p>
 
 **Delete Entry Button**
 -----------------------------------
 The "Delete Entry" button is the opposite of the entry button. It will delete the requested entry for the user given the rotation index and the row index. Use this feature carefully as this is more intended to delete the most recent entry if you accidentally mistyped. While it can delete any entry, it's your job to make sure sure to go back in and reenter those entries manually. Deleting an entry can also cause the step and rotation key values to be out of sync.
 
+New feature added to the delete entry form. It is now possible to delete the most recently added entry while also having the rotation and step update properly. This will help in deleting recent entries that may have been incorrectly registered.
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/100814612/162840437-2ad9ef0d-de4d-4416-b399-3a50126350e0.png"><img>
+<img src="https://user-images.githubusercontent.com/100814612/164356987-82186a97-1cc5-4ec5-935a-76395472db22.png"><img>
 </p>
+
 
 **File Location & Default File Directory**
 -----------------------------------
