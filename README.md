@@ -138,14 +138,14 @@ private void directoryTextbox_KeyDown(object sender, KeyEventArgs e)
     //Check if file path exists and if it's a json file
             if (directoryTextbox.Text.EndsWith(".json") && File.Exists(directoryTextbox.Text))
             {
-      Properties.Settings.Default.FileName = directoryTextbox.Text;
-      Properties.Settings.Default.Save();
-      MessageBox.Show("File path saved", "Success");
+              Properties.Settings.Default.FileName = directoryTextbox.Text;
+              Properties.Settings.Default.Save();
+              MessageBox.Show("File path saved", "Success");
     }
             else
             {
-      MessageBox.Show("Invalid file path", "Error");
-    }
+              MessageBox.Show("Invalid file path", "Error");
+            }
   }
 }
 ```
