@@ -173,8 +173,8 @@ if (openFileDialog1.ShowDialog() == DialogResult.OK)
   Properties.Settings.Default.Save();
   MessageBox.Show("File path saved", "Success");
 }
-      else
-      {
+else
+{
   MessageBox.Show("Invalid file path", "Error");
 }
 ```
