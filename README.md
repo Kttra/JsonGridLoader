@@ -67,7 +67,7 @@ The default file directory can be changed at any time. It is located in the proj
 **Json Files in C#**
 -----------------------------------
 There are multiple ways to access and write information from and to a json file. The below code goes over two different ways.
-```
+```csharp
 string fileName = @"d:\Users\Username\Desktop\sampleAB2.json";
 if (File.Exists(fileName))
 {
@@ -96,7 +96,7 @@ if (File.Exists(fileName))
 -----------------------------------
 You can assign the cell values manually and also add in rows throughout the program.
 
-```
+```csharp
 //Add a row
 dataGridView1.Rows.Add("Row Name");
 
@@ -112,7 +112,7 @@ dataGridView1.Rows.Clear();
 ------------------------------------
 We can assign and change the form controls on the go without needing to create a list.
 
-```
+```csharp
 //Best method in our case
 for (int i = 0; i < Form1.colNum; i++)
 {
@@ -120,32 +120,32 @@ for (int i = 0; i < Form1.colNum; i++)
 }
 
 //If you don't care about order
-//var labels = Controls.OfType<Label>().Where(label => label.Name.StartsWith("label"));
+var labels = Controls.OfType<Label>().Where(label => label.Name.StartsWith("label"));
 
 //If you want to use exact names
-//var labels = new List<Label> { label0, label1, label2, label3, label4, label5, label6, label7, label8};
+labels = new List<Label> { label0, label1, label2, label3, label4, label5, label6, label7, label8};
 ```
 
 **Textbox Enter Event**
 -----------------------------------
 Instead of checking user input upon a button press we can check user input by a key event press. Below is a section of the code where we check the user's input for a valid file path.
 
-```
+```csharp
 private void directoryTextbox_KeyDown(object sender, KeyEventArgs e)
 {
   if (e.KeyCode == Keys.Enter)
   {
     //Check if file path exists and if it's a json file
-            if (directoryTextbox.Text.EndsWith(".json") && File.Exists(directoryTextbox.Text))
-            {
-              Properties.Settings.Default.FileName = directoryTextbox.Text;
-              Properties.Settings.Default.Save();
-              MessageBox.Show("File path saved", "Success");
+    if (directoryTextbox.Text.EndsWith(".json") && File.Exists(directoryTextbox.Text))
+    {
+      Properties.Settings.Default.FileName = directoryTextbox.Text;
+      Properties.Settings.Default.Save();
+      MessageBox.Show("File path saved", "Success");
     }
-            else
-            {
-              MessageBox.Show("Invalid file path", "Error");
-            }
+    else
+    {
+      MessageBox.Show("Invalid file path", "Error");
+    }
   }
 }
 ```
@@ -154,7 +154,7 @@ private void directoryTextbox_KeyDown(object sender, KeyEventArgs e)
 ------------------------------------
 To open the file dialog and assign settings we can do the following:
 
-```
+```csharp
 //Setting up the file explorer selector
 OpenFileDialog openFileDialog1 = new OpenFileDialog();
 openFileDialog1.CheckFileExists = true;
